@@ -1,10 +1,10 @@
     # -*- coding: utf-8 -*-
 """
-Listen to Twitter for two tags on two different subjects at once.
+Listen to Twitter for multiple tags on multiple different subjects at once.
 
 Set:	yourtagone and yourtagtwo for firstthing
-		yourtagthree and yourtagfour for secondthing
-		api keys
+	yourtagthree and yourtagfour for secondthing
+	api keys
 
 Last modified: August 2016
 
