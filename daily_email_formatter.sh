@@ -10,5 +10,9 @@ echo -e "\nThe most recently updated TimeLapse Propogation:" >> email_to_send.tx
 ls -lAtr /media/charlie/raspi_usb/TimeLapse/pictures | tail -1 >> email_to_send.txt
 echo -e "\nThe currently scheduled cronjobs are :" >>email_to_send.txt
 crontab -l >> email_to_send.txt
-mail -s "Daily Pi logfile update: "$(date "+%d/%m/%y") $1 < email_to_send.txt 
+echo -e "\nThe amount of space used on the Pi is :">>email_to_send.txt
+df --output=used -h /dev/sda1 | tail -n 1 >> email_to_send.txt
+echo "\nThe amount of space remaining on the Pi is:">>email_to_send.txt
+df --output=avail -h /dev/sda1 | tail -n 1 >> email_to_send.txt
+mail -s "Daily Pi logfile update: "$(date "+%d/%m/%y") $1 < email_to_send.txt
 rm email_to_send.txt
